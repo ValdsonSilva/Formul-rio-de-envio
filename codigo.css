@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+body {
+    display: grid;
+    place-content: center;
+    background-image: url("noite.jpg");
+}
+
+h1 {
+    font-size: 50px;
+    color: #f0f8ff;
+    text-shadow: 2px 1px 5px #000000;
+}
+
+form {
+    width: 700px;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(30px);
+    box-shadow: 1px 2px 20px #000000;
+}
+
+label {
+    color: #f0f8ff;
+    position: relative;
+    left: -200px;
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 2px 1px 5px #000000;
+}
+
+input {
+    width: 500px;
+    height: 50px;
+    margin: 20px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    font-size: 30px;
+    border: none;
+    box-shadow: 1px 2px 20px #000000;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #0acfbf;
+    color: #000000;
+    font-size: 20px;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    box-shadow: 1px 2px 20px #000000;
+}
+
+button:hover {
+    width: 150px;
+    height: 60px;
+    background-color: #0000ff;
+    color: #fff;
+    font-size: 25px;
+    padding-inline: 5px;
+    transition: 0.5s;
+}
+
+button:active {
+    box-shadow: 1px 2px 20px #ffffff;
+}
+
+table {
+    margin: 20px;
+    width:auto;
+    height: auto;
+    border: 3px solid #ffffff;
+    text-align: center;
+
+}
+
+thead {
+    height: 70px;
+    font-size: 20px;
+    background-color: #8b008b;
+    color: #f0f8ff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+tbody {
+    height: 70px;
+    font-size: 25px;
+    color: #f0f8ff;
+    background-color: transparent;
+    backdrop-filter: blur(30px);
+
+}
+
+td {
+    height: 70px;
+    padding-inline: 10px;
+}
