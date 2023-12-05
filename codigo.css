@@ -1,8 +1,10 @@
 @charset "utf-8";
 
 body {
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* place-content: center; */
     background-image: url("noite.jpg");
 }
 
@@ -13,10 +15,16 @@ h1 {
 }
 
 form {
+    margin-top: 100px;
     width: 700px;
     height: auto;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    /* text-align: center; */
+    /* padding: 20px; */
     background-color: transparent;
     backdrop-filter: blur(30px);
     box-shadow: 1px 2px 20px #000000;
@@ -24,8 +32,9 @@ form {
 
 label {
     color: #f0f8ff;
-    position: relative;
-    left: -200px;
+    /* position: relative; */
+    /* left: -200px; */
+    width: 500px;
     font-size: 25px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-shadow: 2px 1px 5px #000000;
@@ -34,7 +43,7 @@ label {
 input {
     width: 500px;
     height: 50px;
-    margin: 20px;
+    /* margin: 20px; */
     border: 2px solid #000000;
     border-radius: 20px;
     font-size: 30px;
@@ -49,6 +58,7 @@ button {
     background-color: #0acfbf;
     color: #000000;
     font-size: 20px;
+    margin: 10px 0px;
     font-style: normal;
     font-family: Arial, Helvetica, sans-serif;
     border: none;

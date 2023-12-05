@@ -13,12 +13,30 @@ function adicionarDados() {
     var nome = document.querySelector('input[name="nome"]').value;
     var email = document.querySelector('input[name="email"]').value;
     var telefone = document.querySelector('input[name="telefone"]').value;
-    var endereco = document.querySelector('input[name="endereco"]').value;
-    var cidade = document.querySelector('input[name="cidade"]').value;
+    var cep = document.querySelector('input[name="cep"]').value
+    var cpf = document.querySelector('input[name="cpf"]').value
+    var cnpj = document.querySelector('input[name="cnpj"]').value
+
+    // expressões regulares ou máscaras do formulário
+    var regexTelefone = /^\d{2}\d{5}\d{4}$/;
+    var regexCep = /^\d{5}-\d{3}$/g
+    var regexCpf = /^\d{3}.\d{3}.\d{3}-\d{2}$/
+    var regexCnpj = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+    // saida cnpj -> 05.311.244/0001-09
 
      
-    //Tratamento para não mandar o form sem valores!
-    if (nome !== '' & email !== '' & telefone !== '' & endereco !== '' & cidade !== ''){
+    //Tratamento para não mandar o form sem valores e com suas máscaras!
+    if ( nome !== '' &
+         email !== '' & 
+         telefone !== '' & 
+         cep !== '' & 
+         cpf !== '' & 
+         cnpj !== "" &
+         regexTelefone.test(telefone) &
+         regexCep.test(cep) &
+         regexCpf.test(cpf) & 
+         regexCnpj.test(cnpj)){
+
         //"tabela" recebe o id da tabela no html
         var tabela = document.getElementById("tabela-dados").getElementsByTagName('tbody')[0];
         //essa var recebe a tabela acompanhada do método insertRow
@@ -26,23 +44,68 @@ function adicionarDados() {
         var celulaNome = novaLinha.insertCell(0);
         var celulaEmail = novaLinha.insertCell(1);
         var celulaTelefone = novaLinha.insertCell(2);
-        var celulaEndereco = novaLinha.insertCell(3);
-        var celulaCidade = novaLinha.insertCell(4);
+        var celulaCep = novaLinha.insertCell(3)
+        var celulaCpf = novaLinha.insertCell(4)
+        var celulaCnpj = novaLinha.insertCell(5)
+        // var celulaEndereco = novaLinha.insertCell(3);
+        // var celulaCidade = novaLinha.insertCell(4);
         
         celulaNome.innerHTML = nome;
         celulaEmail.innerHTML = email;
         celulaTelefone.innerHTML = telefone;
-        celulaEndereco.innerHTML = endereco;
-        celulaCidade.innerHTML = cidade;
+        celulaCep.innerHTML = cep;
+        celulaCpf.innerHTML = cpf;
+        celulaCnpj.innerHTML = cnpj;
+        // celulaEndereco.innerHTML = endereco;
+        // celulaCidade.innerHTML = cidade;
     }
-    
+    else {
+        alert('Preencha todos os campos do formulário ou verifique a quantidade de dígitos!')
+    } 
 }
+
 
 //Essa função reseta os campos do form após o envio!
 function limparDados() {
     document.querySelector('input[name="nome"]').value = "";
     document.querySelector('input[name="email"]').value = "";
-    document.querySelector('input[name="endereco"]').value = "";
     document.querySelector('input[name="telefone"]').value = "";
-    document.querySelector('input[name="cidade"]').value = "";
+    document.querySelector('input[name="cep"]').value = "";
+    document.querySelector('input[name="cpf"]').value = "";
+    document.querySelector('input[name="cnpj"]').value = "";
+}
+
+var cnpj = '05.311.244/0001-09'
+var cpf = "081.117.763-73"
+var cep = "64803-790"
+var telefone = "89994331777"
+
+var regexTelefone = /^\d{2}\d{5}\d{4}$/;
+var regexCep = /^\d{5}-\d{3}$/g
+var regexCpf = /^\d{3}.\d{3}.\d{3}-\d{2}$/
+var regexCnpj = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+
+
+if (regexCnpj.test(cnpj)) {
+    console.log("cnpj válido!")
+}else {
+    console.log('cnpj inválido!')
+}
+
+if (regexTelefone.test(telefone)){
+    console.log("telefone válido")
+}else {
+    console.log("telefone inválido")
+}
+
+if (regexCpf.test(cpf)){
+    console.log('cpf válido')
+}else {
+    console.log('cpf inválido')
+}
+
+if (regexCep.test(cep)){
+    console.log("cep válido")
+}else {
+    console.log("cep inválido")
 }
