@@ -17,7 +17,7 @@ function adicionarDados() {
     var cpf = document.querySelector('input[name="cpf"]').value
     var cnpj = document.querySelector('input[name="cnpj"]').value
 
-    // expressões regulares ou máscaras do formulário
+    // expressões regulares para validar campos do formulário
     var regexTelefone = /^\d{2}\d{5}\d{4}$/;
     var regexCep = /^\d{5}-\d{3}$/g
     var regexCpf = /^\d{3}.\d{3}.\d{3}-\d{2}$/
@@ -25,14 +25,8 @@ function adicionarDados() {
     // saida cnpj -> 05.311.244/0001-09
 
      
-    //Tratamento para não mandar o form sem valores e com suas máscaras!
-    if ( nome !== '' &
-         email !== '' & 
-         telefone !== '' & 
-         cep !== '' & 
-         cpf !== '' & 
-         cnpj !== "" &
-         regexTelefone.test(telefone) &
+    //Verificação dos dados passados nos inputs!
+    if ( regexTelefone.test(telefone) &
          regexCep.test(cep) &
          regexCpf.test(cpf) & 
          regexCnpj.test(cnpj)){
@@ -75,6 +69,8 @@ function limparDados() {
     document.querySelector('input[name="cnpj"]').value = "";
 }
 
+/* ---------testes de validação-------- */
+
 var cnpj = '05.311.244/0001-09'
 var cpf = "081.117.763-73"
 var cep = "64803-790"
@@ -109,3 +105,11 @@ if (regexCep.test(cep)){
 }else {
     console.log("cep inválido")
 }
+
+
+// nome !== '' &
+// email !== '' & 
+// telefone !== '' & 
+// cep !== '' & 
+// cpf !== '' & 
+// cnpj !== "" &
